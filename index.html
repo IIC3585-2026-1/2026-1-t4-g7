@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SplitApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header style="display: flex;flex-direction: row;">
+    <img src="logo192.png" style="height:80px;width:80px;object-fit:contain;margin-left: 5%;">
+    <h1>VelocirAppTore</h1>
+  </header>
+
+  <main>
+
+    <section class="card">
+      <h2>Miembros</h2>
+      <ul id="lista-miembros"></ul>
+      <div style="display:flex;flex-direction: row;justify-content: space-between; margin-top: 10px;">
+        <input id="nuevo_miembro" placeholder="Nombre" style="width: 65%;">
+        <button id="btn-anadir-miembro" class="btn-texto">+ Añadir Miembro</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Gastos</h2>
+        <button id="btn-abrir-form" class="btn-texto">+ Agregar gasto</button>
+      </div>
+      <ul id="lista-gastos"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Balances</h2>
+      <ul id="lista-balances"></ul>
+    </section>
+
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Nuevo gasto</h2>
+      <label>Descripción
+        <input type="text" id="input-desc" placeholder="Ej: Almuerzo" />
+      </label>
+      <label>Monto ($)
+        <input type="number" id="input-monto" placeholder="Ej: 10000" min="0" />
+      </label>
+      <label>Pagó
+        <select id="input-pagador"></select>
+      </label>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
+          <span style="font-size:0.9rem;color:#555">Quiénes deben</span>
+          <button type="button" id="btn-todos" style="padding:0.25rem 0.75rem;font-size:0.8rem;">Todos</button>
+        </div>
+        <div id="lista-deudores" style="display:flex;flex-direction:column;gap:0.4rem;max-height:140px;overflow-y:auto;border:1px solid #ddd;border-radius:6px;padding:0.5rem;"></div>
+      </div>
+      <div class="modal-actions">
+        <button id="btn-cancelar">Cancelar</button>
+        <button id="btn-guardar">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>IIC3585 - Diseño avanzado de aplicaciones web</p>
+  </footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
